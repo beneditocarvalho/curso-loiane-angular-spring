@@ -1,3 +1,4 @@
+import { CoursesService } from './../../course/services/courses.service';
 import { Course } from './../models/course';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,9 +14,12 @@ export class CoursesComponent implements OnInit {
   ];
   displayedColumns = ['name', 'category'];
 
+  //coursesService: CoursesService;
 
-  constructor() {
+  constructor(private coursesService: CoursesService) {
     //this.courses = [];
+    //this.coursesService = new CoursesService();
+    this.courses = this.coursesService.list();
   }
 
   ngOnInit(): void {
